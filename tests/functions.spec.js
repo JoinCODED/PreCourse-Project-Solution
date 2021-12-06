@@ -9,14 +9,12 @@
 import {
   sumOdds,
   characterCount,
-  differences,
   largestIncrement,
   afterX,
   abbreviate,
   isUpperCase,
   elementInArray,
-  reverseString,
-} from "../project";
+} from "../functions";
 
 describe("sumOdds(numbers)", () => {
   test("returns the sum of only the ODD numbers.", () => {
@@ -34,14 +32,22 @@ describe("characterCount(string, c)", () => {
     expect(characterCount(string, c)).toEqual(times);
   });
 
-  test("is case-insensitive.", () => {
+  test("string is case-insensitive.", () => {
     const string = "aAaebc";
     const c = "a";
     const times = 3;
     expect(characterCount(string, c)).toEqual(times);
   });
+
+  test("c is case-insensitive.", () => {
+    const string = "aAaebc";
+    const c = "A";
+    const times = 3;
+    expect(characterCount(string, c)).toEqual(times);
+  });
 });
 
+/*
 describe("differences(numbers)", () => {
   test("returns an array with the correct length (one less than the numbers array.)", () => {
     const numbers = [1, 3, 7, 9, 19];
@@ -54,6 +60,7 @@ describe("differences(numbers)", () => {
     expect(differences(numbers)).toEqual(diffArray);
   });
 });
+*/
 
 describe("largestIncrement(numbers)", () => {
   test("returns the largest difference between two consecutive numbers in an array.", () => {
@@ -73,6 +80,13 @@ describe("afterX(numbers, x)", () => {
 });
 
 describe("abbreviate(firstName, lastName)", () => {
+  test("returns the correct initials of a name", () => {
+    const firstName = "Mickey";
+    const lastName = "Singer";
+    const initials = "MS";
+    expect(abbreviate(firstName, lastName)).toEqual(initials);
+  });
+
   test("returns the correct initials of a name in uppercase", () => {
     const firstName = "mickey";
     const lastName = "singer";
@@ -107,6 +121,7 @@ describe("elementInArray(numbers, x)", () => {
   });
 });
 
+/*
 describe("reverseString(string)", () => {
   test("returns the reverse of a string.", () => {
     const string = "rfvwkev";
@@ -114,3 +129,4 @@ describe("reverseString(string)", () => {
     expect(reverseString(string)).toEqual(reversed);
   });
 });
+*/
